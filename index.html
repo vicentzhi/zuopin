@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<body oncontextmenu=self.event.returnValue=false>
+    <div class="warp">
+        <div class="left">
+            <ul></ul>
+        </div>
+        <div class="right">
+            <div class='sp'>
+                <video src="./about_banner_17_12.mp4" autoplay=true >
+                    您的浏览器不支持 video 标签。
+                </video>
+                <span class='zz'>
+                    Design By:Vicent_执傲
+                </span>
+            </div>
+        </div>
+    </div>
+</body>
+<script src='./jquery-3.3.1.min.js'></script>
+<script>
+    var left = $('.left:eq(0)>ul')[0];
+    var right = $('.right')[0];
+    var leftArr = ['用户体验', '动效', '海报', '海报_脑力好男人_不负好时光', '后台管理页面', '平面', '启动页', '视觉规范', '手绘', '淳生活', '图标', '文字变形', '专题页', 'banner', 'C4D', 'H5界面', 'logo']
+    var imgArr = [
+        [
+            {
+                name: '用户体验_16_09',
+                img: './img/users/user.jpg'
+            }
+        ],
+        [
+            {
+                name: '腾讯视频VIP动效改版',
+                img: './img/gif/tenxinvip.gif'
+            },
+            {
+                name: '起始稿',
+                img: './img/gif/WechatIMG5.jpeg'
+            }
+        ],
+        [
+            {
+                name: '你好九月',
+                img: './img/haibao/jiuyue.jpg'
+            },
+            {
+                name: '你好四月',
+                img: './img/haibao/siyue.jpg'
+            },
+            {
+                name: '七月你好',
+                img: './img/haibao/qiyue.jpg'
+            },
+            {
+                name: '巧克力_海报汇总',
+                img: './img/haibao/qiaokeli.jpg'
+            }
+        ],
+        [
+            {
+                name: '脑力男人时代_第二版_07_11',
+                img: './img/naoli/1.jpg'
+            },
+            {
+                name: '脑力男人时代_第六版_07_11',
+                img: './img/naoli/2.jpg'
+            },
+            {
+                name: '脑力男人时代_第七版_07_11',
+                img: './img/naoli/3.jpg'
+            },
+            {
+                name: '脑力男人时代_第三版_07_11',
+                img: './img/naoli/4.jpg'
+            },
+            {
+                name: '脑力男人时代_第四版_07_11',
+                img: './img/naoli/5.jpg'
+            },
+            {
+                name: '脑力男人时代_第五版_07_11',
+                img: './img/naoli/6.jpg'
+            },
+            {
+                name: '脑力男人时代_第一版_07_11',
+                img: './img/naoli/7.jpg'
+            }
+        ],
+        [
+            {
+                name: '登录 (2)',
+                img: './img/houtai/login2.jpg'
+            },
+            {
+                name: '登录',
+                img: './img/houtai/login.jpg'
+            },
+            {
+                name: 'anbox 車險業務 保單 (2)',
+                img: './img/houtai/anboxbaodan2.jpg'
+            },
+            {
+                name: 'anbox 車險業務 保單',
+                img: './img/houtai/anboxbaodan.jpg'
+            },
+            {
+                name: 'anbox-车险业务-递送管理12',
+                img: './img/houtai/anboxchexian12.jpg'
+            },
+            {
+                name: 'anbox-车险业务-服务对比管理-保险公司差异化服务配置管理19.1',
+                img: './img/houtai/anboxchexianyewuguanli19.1.jpg'
+            },
+            {
+                name: 'anbox-车险业务-服务对比管理-车险售后服务项目管理18.1',
+                img: './img/houtai/anboxshouhuo18.1.jpg'
+            },
+            {
+                name: 'anbox-车险业务-服务对比管理-规则管理17.1',
+                img: './img/houtai/anboxguize17.1.jpg'
+            },
+            {
+                name: 'anbox-车险业务-服务供应商管理16.2',
+                img: './img/houtai/anbox-gongyingshang16.2.jpg'
+            },
+            {
+                name: 'anbox-车险业务-服务供应商管理16',
+                img: './img/houtai/anboxgognyingshang16.jpg'
+            },
+            {
+                name: 'anbox-车险业务-核保规则管理-添加13.1',
+                img: './img/houtai/anboxguizeadd13.1.jpg'
+            },
+            {
+                name: 'anbox-车险业务-核保规则管理13',
+                img: './img/houtai/anboxguizeadd13.jpg'
+            },
+            {
+                name: 'anbox-车险业务-通话小结管理-问题类型管理14',
+                img: './img/houtai/anboxwentiguanli14.jpg'
+            },
+            {
+                name: 'anbox-车险业务-通话小结管理-问题小结管理15',
+                img: './img/houtai/anboxwentixioajie15.jpg'
+            },
+            {
+                name: 'anbox-车险业务-微信照片管理16',
+                img: './img/houtai/anboxwenxi16.jpg'
+            },
+            {
+                name: 'anbox-发送信息 (2)',
+                img: './img/houtai/anboxmessage2.jpg'
+            },
+            {
+                name: 'anbox-发送信息',
+                img: './img/houtai/anboxfasongxinxi.jpg'
+            },
+            {
+                name: 'anbox-快递 (2)',
+                img: './img/houtai/anboxkuaidi2.jpg'
+            },
+            {
+                name: 'anbox-快递-运单打印-快递订单',
+                img: './img/houtai/anboxkuaidiyund.jpg'
+            },
+            {
+                name: 'anbox-快递',
+                img: './img/houtai/anboxkuaidi.jpg'
+            },
+            {
+                name: 'anbox-list (2)',
+                img: './img/houtai/anbox-list (2).jpg'
+            },
+            {
+                name: 'anbox-list',
+                img: './img/houtai/anbox-list.jpg'
+            }
+        ],
+        [
+            {
+                name: '个人名片_14_02',
+                img: './img/pingmian/id/id14_02.jpg'
+            },
+            {
+                name: '个人名片_15_06',
+                img: './img/pingmian/id/id_15_06.jpg'
+            },
+            {
+                name: '个人名片_16_05',
+                img: './img/pingmian/id/id_16_05.jpg'
+            },
+            {
+                name: '腾讯养生三折页',
+                img: './img/pingmian/sanzheye/tengxunsanzheye.jpg'
+            },
+            {
+                name: '遇见咖啡',
+                img: './img/pingmian/sanzheye/yujiankf.jpg'
+            },
+            {
+                name: '爱上火锅_X展架_17',
+                img: './img/pingmian/yilabao/haisahng.jpg'
+            },
+            {
+                name: '面包美食_600_800',
+                img: './img/pingmian/yilabao/mianbao.jpg'
+            },
+            {
+                name: '旗袍',
+                img: './img/pingmian/yilabao/qipao.jpg'
+            }
+        ],
+        [
+            {
+                name: '界面改版',
+                img: './img/agine/jeimaingaiban.jpg'
+            },
+            {
+                name: '社交启动页',
+                img: './img/agine/shejiao.jpg'
+            },
+            {
+                name: '视频启动页_17_06',
+                img: './img/agine/shipin1.jpg'
+            },
+            {
+                name: '视频启动页_17_06 (3)',
+                img: './img/agine/shipin3.png'
+            },
+            {
+                name: '视频启动页_17_06 (2)',
+                img: './img/agine/shipin2.JPG'
+            },
+            {
+                name: '视频启动页_17_06 (1)',
+                img: './img/agine/shipin1.JPG'
+            },
+        ],
+        [
+            {
+                name: '第三版  (1)',
+                img: './img/shijue/3.1.jpg'
+            },
+            {
+                name: '第三版  (2)',
+                img: './img/shijue/3.2.jpg'
+            },
+            {
+                name: '第一版 (1)',
+                img: './img/shijue/1.1.jpg'
+            },
+            {
+                name: '第一版 (2)',
+                img: './img/shijue/1.2.jpg'
+            },
+            {
+                name: '第一版 (3)',
+                img: './img/shijue/1.3.jpg'
+            },
+            {
+                name: '腾讯VIP视觉改版_17_11',
+                img: './img/shijue/tengxunvipgai.jpg'
+            },
+            {
+                name: '优化设计第二版_16_07',
+                img: './img/shijue/youhua2.jpg'
+            },
+            {
+                name: '优化设计第二版_16_08',
+                img: './img/shijue/youhu2.1.jpg'
+            }
+        ],
+        [
+            {
+                name: '戏子',
+                img: './img/shuhui/1439290451204.jpeg'
+            },
+            {
+                name: '餐桌_11_09',
+                img: './img/shuhui/canzhuo.jpg'
+            },
+            {
+                name: '大圣归来_孙大圣',
+                img: './img/shuhui/dasheng.jpeg'
+            },
+            {
+                name: '东京喰种_15_02_金木',
+                img: './img/shuhui/dongjingshizhong.jpg'
+            },
+            {
+                name: '东京喰种_金木',
+                img: './img/shuhui/jinmu.jpeg'
+            },
+            {
+                name: '四分之三人头女',
+                img: './img/shuhui/sifenzhisan.jpg'
+            },
+            {
+                name: '效果图',
+                img: './img/shuhui/xiaoguo.jpg'
+            },
+            {
+                name: '眼泪',
+                img: './img/shuhui/yanlei.jpeg'
+            },
+            {
+                name: '阴阳师_白无常',
+                img: './img/shuhui/yinyangshi.jpeg'
+            }
+        ],
+        [
+            {
+                name: '淳生活视觉15_07',
+                img: './img/tun/tun-1.jpg'
+            }
+        ],
+        [
+            {
+                name: '清凉一夏_搜狗图标大赛_优秀作品奖_16_08',
+                img: './img/icon/qingliangyixia.jpg'
+            },
+            {
+                name: '桃乐丝历险记_搜狗大赛参赛_16_08',
+                img: './img/icon/laolesi.jpg'
+            },
+            {
+                name: 'MBE风格图标_91桌面参赛_16_06',
+                img: './img/icon/meb.jpg'
+            }
+        ],
+        [
+            {
+                name: '文字改版_吃货免单',
+                img: './img/font/chihuomiandan.jpg'
+            },
+            {
+                name: 'Vicent_字体设计_1_29',
+                img: './img/font/Vicent_font_1_29.png'
+            }
+        ],
+        [
+            {
+                name: '2015年度电影榜中榜',
+                img: './img/zhuanti/2015dianying.jpg'
+            },
+            {
+                name: '儿童频_15_06',
+                img: './img/zhuanti/ertongjie.jpg'
+            },
+            {
+                name: '儿童频道_15_06',
+                img: './img/zhuanti/ertongpindao.jpg'
+            },
+            {
+                name: '古装当道，腾讯时尚美妆频道',
+                img: './img/zhuanti/guzhuang.jpg'
+            },
+            {
+                name: '鬼吹灯之精绝古城_16_06',
+                img: './img/zhuanti/guichuideng.jpg'
+            },
+            {
+                name: '开学季_2015_06',
+                img: './img/zhuanti/kaixueji.jpg'
+            },
+            {
+                name: '恋爱中的城市',
+                img: './img/zhuanti/lianaidechengshi.jpg'
+            },
+            {
+                name: '母情节专题海报_14_05',
+                img: './img/zhuanti/mingqinjie.png'
+            },
+            {
+                name: '腾讯_斗地主_15_03',
+                img: './img/zhuanti/doudizhu.jpg'
+            },
+            {
+                name: '腾讯_天天来战_14_07',
+                img: './img/zhuanti/ttlz.jpg'
+            },
+            {
+                name: '腾讯视频专题 _17_9',
+                img: './img/zhuanti/tengxunshipin.jpg'
+            },
+            {
+                name: '腾讯视频VIP新用户专享首开10元_月 - 腾讯视频',
+                img: './img/zhuanti/tengxunvip.png'
+            },
+            {
+                name: 'wegame_上线更新',
+                img: './img/zhuanti/wegame.png'
+            }
+        ],
+        [
+            {
+                name: '电商banner_16_05 _2',
+                img: './img/banner/banner_16_05 _2.jpg'
+            },
+            {
+                name: '电商banner_16_05_1',
+                img: './img/banner/banner_16_05_1.jpg'
+            },
+            {
+                name: '电商banner_16_05_3',
+                img: './img/banner/banner_16_05_3.jpg'
+            },
+            {
+                name: '电商banner_16_05',
+                img: './img/banner/banner_16_05.jpg'
+            },
+            {
+                name: '电商banner_16_06',
+                img: './img/banner/banner_16_06.jpg'
+            },
+            {
+                name: '耳机_17_07_21',
+                img: './img/banner/erji_17_07_21.jpg'
+            },
+            {
+                name: '美食_17_05_12',
+                img: './img/banner/meishi_17_05_12.jpg'
+            },
+            {
+                name: '美食_17_05_18',
+                img: './img/banner/meihshi_17_05_18.jpg'
+            },
+            {
+                name: '美食_17_05_20',
+                img: './img/banner/meishi_17_05_20.jpg'
+            },
+            {
+                name: '美食_17_06',
+                img: './img/banner/meishi_17_06.jpg'
+            }
+        ],
+        [
+            {
+                name: '圣诞节海报',
+                img: './img/C4D/shengdan.jpg'
+            },
+            {
+                name: '艺术家居',
+                img: './img/C4D/yishujiajv.jpg'
+            }
+        ],
+        [
+            {
+                name: '4G天翼合作',
+                img: './img/H5/tianyi.jpeg'
+            },
+            {
+                name: '吃喝玩乐_17_05',
+                img: './img/H5/chihewanle.jpg'
+            },
+            {
+                name: '电站项目',
+                img: './img/H5/dianzhan.jpg'
+            },
+            {
+                name: '感恩节',
+                img: './img/H5/ganenjie.jpg'
+            },
+            {
+                name: '记录2016年最具影响cp',
+                img: './img/H5/2016cp.jpg'
+            },
+            {
+                name: '跨界CP',
+                img: './img/H5/kuaijeiCP.jpg'
+            },
+            {
+                name: '深圳旅游',
+                img: './img/H5/shenzhen.jpg'
+            },
+            {
+                name: '腾讯hi歌',
+                img: './img/H5/tengxunkge.jpg'
+            },
+            {
+                name: '维密美学生活',
+                img: './img/H5/weimi.jpg'
+            },
+            {
+                name: '胃，你还好么',
+                img: './img/H5/wei.jpg'
+            },
+            {
+                name: 'Hi歌',
+                img: './img/H5/hi.jpg'
+            },
+            {
+                name: 'Live Music  邀请函',
+                img: './img/H5/Live Music.jpg'
+            }
+        ],
+        [
+            {
+                name: '淳味生活_小食_16_11',
+                img: './img/logo/tunwen.jpg'
+            },
+            {
+                name: '面有道_牛肉面_15_06',
+                img: './img/logo/mianyoudao.jpg'
+            },
+            {
+                name: 'griff_雄鹰_衣服_15_07',
+                img: './img/logo/xiongying.jpg'
+            }
+        ]
+    ]
+    for(var i = 0; i < leftArr.length; i++) {
+        left.innerHTML += '<li>' + leftArr[i] + '</li>';
+    }
+    for(var i = 0; i < imgArr.length; i++) {
+        var div = document.createElement('div');
+        div.className = 'pic'
+        right.innerHTML += `<h4>${leftArr[i]}</h4>`
+        for(var j = 0; j < imgArr[i].length; j++) {
+            div.innerHTML += `<div><img src="${imgArr[i][j].img}" alt=""></div>`
+        }
+        right.appendChild(div);
+    }
+    right.innerHTML += '<div class="end"><p class="xx">Thank You</p><p>Everyone Support</p><p>'
+    var leftList = $('.left:eq(0)>ul:eq(0)>li').map(function(v, i) {
+        i.onclick = function () {
+            right.scrollTop = $('.right:eq(0)>h4').eq(v)[0].offsetTop;
+            for(var y = 0; y < $('.left:eq(0)>ul:eq(0)>li').length; y++ ){
+                $('.left:eq(0)>ul:eq(0)>li')[y].className = '';
+            }
+            this.className = 'show';
+        }
+    });
+</script>
+</html>
