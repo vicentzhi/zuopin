@@ -528,6 +528,7 @@
             div.innerHTML += `<div><img src="${imgArr[i][j].img}" alt=""></div>`
         }
         right.appendChild(div);
+        console.log(right);
     }
     right.innerHTML += '<div class="end"><p class="xx">Thank You</p><p>Everyone Support</p><p>'
     var leftList = $('.left:eq(0)>ul:eq(0)>li').map(function(v, i) {
